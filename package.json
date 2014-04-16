@@ -1,0 +1,21 @@
+{
+  "name": "rfr",
+  "author": "Su Su <s@warmsea.net>",
+  "version": "1.0.0",
+  "description": "Require From project Root tool for Node.js.",
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "rfr",
+    "require"
+  ],
+  "homepage": "https://github.com/warmsea/node-rfr",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/warmsea/node-rfr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/warmsea/node-rfr/issues"
+  },
+  "main": "lib/rfr.js"
+}
