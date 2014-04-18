@@ -25,3 +25,4 @@ build/Release
 node_modules
 
 .project
+.DS_Store
