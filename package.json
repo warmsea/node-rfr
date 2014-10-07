@@ -1,13 +1,14 @@
 {
   "name": "rfr",
   "author": "Su Su <s@warmsea.net>",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Require From project Root tool for Node.js.",
   "license": "MIT",
   "keywords": [
     "node",
     "rfr",
-    "require"
+    "require",
+    "root"
   ],
   "homepage": "https://github.com/warmsea/node-rfr",
   "repository": {
