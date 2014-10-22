@@ -1,9 +1,12 @@
 node-rfr
 ========
 
-**node-rfr** is a *<b>R</b>equire <b>F</b>rom project <b>R</b>oot* tool for Node.js.
+**node-rfr** is a *<b>R</b>equire <b>F</b>rom (project) <b>R</b>oot* tool for
+Node.js.
 
-**node-rfr** allows you to require modules in your project with ```rfr('/lib/module1.js')``` instead of something like ```require('../../lib/module1.js')```.
+**node-rfr** allows you to require modules in your project with
+```rfr('lib/module1.js')``` instead of something like
+```require('../../lib/module1.js')```.
 
 Install
 -------
@@ -21,12 +24,13 @@ Suppose we have a project with the following structure:
 project
 |--package.json
 |--run.js
-|--lib
+`--lib
    |--module1.js
-   |--module2.js
+   `--module2.js
 ```
 
-If we run ```run.js``` in the project folder, we can require modules relatively like this:
+If we run ```run.js``` in the project folder, we can require modules relatively
+like this:
 
 ```bash
 var rfr = require('rfr');
@@ -37,48 +41,83 @@ var module2 = rfr('lib/module2');  // Leading slash can be omitted.
 Customize the Root
 ------------------
 
-By default, the root path is the current working path where you run the program. If you want to use another path as the root, set it to the environment variable named ```RFR_ROOT``` before you require **node-rfr**. For example, run the program like this:
+By default, the root path is the current working path where you run the
+program. If you want to use another path as the root, set it to the environment
+variable named ```RFR_ROOT``` before you require **node-rfr**. For example, run
+the program like this:
 
 ```bash
 RFR_ROOT=<some_path> node run.js
 ```
 
-Or set it with the following code:
+Or set (or get) it with the `.root` property:
 
 ```javascript
+var rfr = require('rfr');
+rfr.root = '/usr/local';  // rfr adds a tailing slash if needed.
+rfr.root;                 // Gets "/usr/local/"
+```
+
+Or set it with the `.setRoot()` function:
+
+```javascript
+var rfr = require('rfr');
 rfr.setRoot('some_path');
 ```
 
 An absolute path is preferred for the root. Maybe you want to use `__dirname`.
 
+Details about Module Path
+-------------------------
+
+Use `.resolve()` to find the absolute path of a module without actually
+importing it.
+
+```
+var rfr = require('rfr');
+
+var path = rfr.resolve('models');
+// Returns an absolute path, for example, "/project/lib/models/index.js"
+```
+
 Multi-version RFR
 -----------------
 
-If you want to use RFR in your module, and want to publish it to NPM. It is possible that a project depends on your module is also using RFR. And if that project changes the RFR root, your module might fail.
-
-Multi-version RFR helps. In the following example, `rfr`, `rfr1` and `rfr2` could have different roots.
+Sometimes you may want more than one RFR. For example, one for
+"<project_root>/lib/" and one for "<project_root>/src/". Multi-version RFR
+helps. In the following example, `rfr`, `rUsr` and `rEtc` could have different
+roots.
 
 ```javascript
 var rfr = require('rfr');
-var rfr1 = require('rfr')({
-  root: '/lib'
+var rUsr = require('rfr')({
+  root: '/usr'
 });
-var rfr2 = require('rfr')({
-  root: '/include'
+var rEtc = require('rfr')({
+  root: '/etc'
 });
 
-rfr.setRoot('/');  // Only changes the root of rfr
+rfr.setRoot('/');  // Only changes the root of the master rfr
 
 rfr('/module');   // Requires '/module'
-rfr1('/module');  // Requires '/lib/module'
-rfr2('/module');  // Requires '/include/module'
+rUsr('/module');  // Requires '/usr/module'
+rEtc('/module');  // Requires '/etc/module'
 ```
 
-It is strongly recommended to use a versioned RFR in a project, or a module, that might be a dependency of another one.
+You can use `.isMaster` property to check whether a RFR instance is the master
+one.
+
+```javascript
+rfr.isMaster;   // true
+rUsr.isMaster;  // false
+rEtc.isMaster;  // false
+```
 
 Change Log
 ----------
 
-**2014-10-06 v1.1.0** Add multi-version RFR support.
+**2014-10-21 v1.1.1** Adds `.root` and `.isMaster` and `.resolve()`.
+
+**2014-10-06 v1.1.0** Adds multi-version RFR support.
 
 **2014-05-01 v1.0.0** First release with require from root support.
