@@ -116,8 +116,8 @@ rEtc.isMaster;  // false
 Change Log
 ----------
 
-**2014-10-21 v1.1.1** Adds `.root` and `.isMaster` and `.resolve()`.
+**2014-10-24 v1.1.1** Adds `.root` and `.isMaster` and `.resolve()`.
 
-**2014-10-06 v1.1.0** Adds multi-version RFR support.
+**2014-10-07 v1.1.0** Adds multi-version RFR support.
 
 **2014-05-01 v1.0.0** First release with require from root support.
