@@ -5,8 +5,8 @@ node-rfr
 Node.js.
 
 **node-rfr** allows you to require modules in your project with
-```rfr('lib/module1.js')``` instead of something like
-```require('../../lib/module1.js')```.
+`rfr('lib/module1.js')` instead of something like
+`require('../../lib/module1.js')`.
 
 Install
 -------
@@ -29,7 +29,7 @@ project
    `--module2.js
 ```
 
-If we run ```run.js``` in the project folder, we can require modules relatively
+If we run `run.js` in the project folder, we can require modules relatively
 like this:
 
 ```bash
@@ -43,7 +43,7 @@ Customize the Root
 
 By default, the root path is the current working path where you run the
 program. If you want to use another path as the root, set it to the environment
-variable named ```RFR_ROOT``` before you require **node-rfr**. For example, run
+variable named `RFR_ROOT` before you require **node-rfr**. For example, run
 the program like this:
 
 ```bash
