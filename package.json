@@ -5,9 +5,8 @@
   "description": "Require From project Root tool for Node.js.",
   "license": "MIT",
   "keywords": [
-    "node",
-    "rfr",
     "require",
+    "project",
     "root"
   ],
   "homepage": "https://github.com/warmsea/node-rfr",
@@ -18,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/warmsea/node-rfr/issues"
   },
-  "main": "lib/rfr.js"
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  }
 }

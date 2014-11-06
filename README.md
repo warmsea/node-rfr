@@ -1,6 +1,9 @@
 node-rfr
 ========
 
+[![NPM Version][npm-image]][npm-url]
+[![NPM Downloads][downloads-image]][downloads-url]
+
 **node-rfr** is a *<b>R</b>equire <b>F</b>rom (project) <b>R</b>oot* tool for
 Node.js.
 
@@ -121,3 +124,9 @@ Change Log
 **2014-10-07 v1.1.0** Adds multi-version RFR support.
 
 **2014-05-01 v1.0.0** First release with require from root support.
+
+
+[npm-image]: https://img.shields.io/npm/v/rfr.svg?style=flat
+[npm-url]: https://npmjs.org/package/rfr
+[downloads-image]: https://img.shields.io/npm/dm/rfr.svg?style=flat
+[downloads-url]: https://npmjs.org/package/rfr
