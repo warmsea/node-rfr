@@ -17,8 +17,14 @@
   "bugs": {
     "url": "https://github.com/warmsea/node-rfr/issues"
   },
+  "devDependencies": {
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.2",
+    "mocha": "^2.0.1"
+  },
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "PATH=$(npm bin):$PATH mocha --bail --check-leaks",
+    "test-travis": "PATH=$(npm bin):$PATH istanbul cover _mocha --report lcovonly -- -R spec --check-leaks"
   }
 }

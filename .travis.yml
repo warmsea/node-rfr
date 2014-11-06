@@ -4,5 +4,5 @@ node_js:
   - "0.10"
   - "0.8"
   - "0.6"
-before_install:
-  - "npm i -g mocha"
+script: "npm run-script test-travis"
+after_script: "PATH=$(npm bin):$PATH cat ./coverage/lcov.info | coveralls"
