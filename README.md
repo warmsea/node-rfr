@@ -1,8 +1,9 @@
 node-rfr
 ========
 
-[![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
+[![NPM Version][https://img.shields.io/npm/v/rfr.svg?style=flat]][https://npmjs.org/package/rfr]
+[![Build Status](http://img.shields.io/travis/warmsea/node-rfr.svg?style=flat)](https://travis-ci.org/warmsea/node-rfr)
+[![Coverage Status](https://img.shields.io/coveralls/warmsea/node-rfr.svg?style=flat)](https://coveralls.io/r/warmsea/node-rfr?branch=master)
 
 **node-rfr** is a *<b>R</b>equire <b>F</b>rom (project) <b>R</b>oot* tool for
 Node.js.
@@ -119,14 +120,10 @@ rEtc.isMaster;  // false
 Change Log
 ----------
 
+**2014-11-17 v1.2.0** Change default root strategy. Now can be used in modules.
+
 **2014-10-24 v1.1.1** Adds `.root` and `.isMaster` and `.resolve()`.
 
 **2014-10-07 v1.1.0** Adds multi-version RFR support.
 
 **2014-05-01 v1.0.0** First release with require from root support.
-
-
-[npm-image]: https://img.shields.io/npm/v/rfr.svg?style=flat
-[npm-url]: https://npmjs.org/package/rfr
-[downloads-image]: https://img.shields.io/npm/dm/rfr.svg?style=flat
-[downloads-url]: https://npmjs.org/package/rfr

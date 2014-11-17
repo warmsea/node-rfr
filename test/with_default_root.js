@@ -22,4 +22,15 @@ describe('rfr with default root', function() {
     });
   });
 
+  it('should use empty string as default root', function() {
+    var save = process.env.PWD;
+    delete process.env.PWD;
+    t(function(rfr) {
+      assert.equal(rfr('assert'), require('assert'));
+    });
+    if (save !== undefined) {
+      process.env.PWD = save;
+    }
+  });
+
 });

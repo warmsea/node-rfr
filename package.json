@@ -24,7 +24,6 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "PATH=$(npm bin):$PATH mocha --bail --check-leaks",
-    "test-travis": "PATH=$(npm bin):$PATH istanbul cover _mocha --report lcovonly -- -R spec --check-leaks"
+    "test": "PATH=$(npm bin):$PATH istanbul cover _mocha --report lcovonly -- -R spec --check-leaks"
   }
 }
