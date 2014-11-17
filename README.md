@@ -1,7 +1,7 @@
 node-rfr
 ========
 
-[![NPM Version][https://img.shields.io/npm/v/rfr.svg?style=flat]][https://npmjs.org/package/rfr]
+[![NPM Version][https://img.shields.io/npm/v/rfr.svg?style=flat]](https://npmjs.org/package/rfr)
 [![Build Status](http://img.shields.io/travis/warmsea/node-rfr.svg?style=flat)](https://travis-ci.org/warmsea/node-rfr)
 [![Coverage Status](https://img.shields.io/coveralls/warmsea/node-rfr.svg?style=flat)](https://coveralls.io/r/warmsea/node-rfr?branch=master)
 
@@ -42,19 +42,43 @@ var module1 = rfr('/lib/module1');
 var module2 = rfr('lib/module2');  // Leading slash can be omitted.
 ```
 
+The Default Root
+----------------
+
+If not specified, a default root will be applied according to where the
+*node-rfr* is located. Typically, the module folder "rfr" will be located
+in a "node_modules" folder. In this case, the folder contains "node_modules"
+will used as the default root.
+
+For example, in the following project. The "project" folder will be used as the
+default root.
+
+```
+project
+|--package.json
+|--run.js
+`--node_modules
+   `--rfr  (Default root: project)
+```
+
+This allows **node-rfr** to be used in a module.
+
+```
+project
+|--package.json
+|--run.js
+`--node_modules
+   |--rfr  (Default root: project)
+   `--my_module
+      `--node_modules
+         `--rfr  (Default root: project/node_modules/my_module)
+```
+
 Customize the Root
 ------------------
 
-By default, the root path is the current working path where you run the
-program. If you want to use another path as the root, set it to the environment
-variable named `RFR_ROOT` before you require **node-rfr**. For example, run
-the program like this:
-
-```bash
-RFR_ROOT=<some_path> node run.js
-```
-
-Or set (or get) it with the `.root` property:
+If you want to use another path as the root, set (and get) it with the
+`.root` property:
 
 ```javascript
 var rfr = require('rfr');
