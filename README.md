@@ -19,6 +19,8 @@ Install
 npm install rfr
 ```
 
+Installing a global rfr module is NOT encouraged.
+
 Usage
 -----
 
@@ -28,13 +30,14 @@ Suppose we have a project with the following structure:
 project
 |--package.json
 |--run.js
-`--lib
-   |--module1.js
-   `--module2.js
+|--lib
+|  |--module1.js
+|  `--module2.js
+`--node_modules
+   `--rfr
 ```
 
-If we run `run.js` in the project folder, we can require modules relatively
-like this:
+If we run `run.js`, we can require modules relatively like this:
 
 ```bash
 var rfr = require('rfr');
@@ -46,9 +49,9 @@ The Default Root
 ----------------
 
 If not specified, a default root will be applied according to where the
-*node-rfr* is located. Typically, the module folder "rfr" will be located
-in a "node_modules" folder. In this case, the folder contains "node_modules"
-will used as the default root.
+*rfr* is located. Typically, the module folder "rfr" will be located in a
+"node_modules" folder. In this case, the folder contains "node_modules" will
+used as the default root.
 
 For example, in the following project. The "project" folder will be used as the
 default root.
@@ -61,7 +64,7 @@ project
    `--rfr  (Default root: project)
 ```
 
-This allows **node-rfr** to be used in a module.
+This allows *rfr* to be used in a module.
 
 ```
 project
@@ -73,6 +76,15 @@ project
       `--node_modules
          `--rfr  (Default root: project/node_modules/my_module)
 ```
+
+Using a global *rfr* module is **NOT** a good idea. It often breaks when
+someone else required such a project as a module. Each project or module should
+has its own *rfr* dependency like the above example.
+
+It is rare and also *NOT* encouraged to use a *rfr* copy out of any
+"node_modules" folder. In such case, the default root will be the environment
+variable `RFR_ROOT`. Or the PWD if `RFR_ROOT` is not set. Or an empty string
+`""` if PWD is also not available.
 
 Customize the Root
 ------------------
@@ -93,7 +105,13 @@ var rfr = require('rfr');
 rfr.setRoot('some_path');
 ```
 
-An absolute path is preferred for the root. Maybe you want to use `__dirname`.
+An absolute path is preferred for the root. Maybe you want to use the default
+root or `__dirname` to help constructing the needed root.
+
+Changes to `rfr.root` is permanent. This means, if another file requires *rfr*
+after a change, the change also applies. If you want to keep the change within
+a single file or part of a single file, use a new version (instance) of `rfr`.
+See "Multi-version RFR" below for more details.
 
 Details about Module Path
 -------------------------
@@ -144,10 +162,12 @@ rEtc.isMaster;  // false
 Change Log
 ----------
 
+**2014-11-21 v1.2.1** Add `.isGlobalMaster`. Update README.
+
 **2014-11-17 v1.2.0** Change default root strategy. Now can be used in modules.
 
-**2014-10-24 v1.1.1** Adds `.root` and `.isMaster` and `.resolve()`.
+**2014-10-24 v1.1.1** Add `.root` and `.isMaster` and `.resolve()`.
 
-**2014-10-07 v1.1.0** Adds multi-version RFR support.
+**2014-10-07 v1.1.0** Add multi-version RFR support.
 
 **2014-05-01 v1.0.0** First release with require from root support.
