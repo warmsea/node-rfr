@@ -162,7 +162,7 @@ rEtc.isMaster;  // false
 Change Log
 ----------
 
-**2014-11-21 v1.2.1** Add `.isGlobalMaster`. Update README.
+**2014-11-22 v1.2.1** Add `.isGlobalMaster`. Update README.
 
 **2014-11-17 v1.2.0** Change default root strategy. Now can be used in modules.
 
