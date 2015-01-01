@@ -86,6 +86,15 @@ It is rare and also *NOT* encouraged to use a *rfr* copy out of any
 variable `RFR_ROOT`. Or the PWD if `RFR_ROOT` is not set. Or an empty string
 `""` if PWD is also not available.
 
+Usage in Modules
+----------------
+
+If a project using *rfr* supposed to be a module depended by other projects,
+*rfr* should be a [**bundled dependency**](https://docs.npmjs.com/files/package.json#bundleddependencies),
+rather than just a [**dependency**](https://docs.npmjs.com/files/package.json#dependencies).
+If *rfr* is specified as a normal dependency, it might use a peer *rfr* module.
+And the default root of the module will be incorrect.
+
 Customize the Root
 ------------------
 
@@ -161,6 +170,8 @@ rEtc.isMaster;  // false
 
 Change Log
 ----------
+
+**2015-01-01 v1.2.2** Add README about usage in modules. And HAPPY NEW YEAR!
 
 **2014-11-22 v1.2.1** Add `.isGlobalMaster`. Update README.
 
