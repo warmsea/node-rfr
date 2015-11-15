@@ -171,6 +171,8 @@ rEtc.isMaster;  // false
 Change Log
 ----------
 
+**2015-11-15 v1.2.3** Add compatibility to Windows and new Node.js versions.
+
 **2015-01-01 v1.2.2** Add README about usage in modules. And HAPPY NEW YEAR!
 
 **2014-11-22 v1.2.1** Add `.isGlobalMaster`. Update README.

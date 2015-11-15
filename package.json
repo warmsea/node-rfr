@@ -1,7 +1,7 @@
 {
   "name": "rfr",
   "author": "Su Su <s@warmsea.net>",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Require From project Root tool for Node.js.",
   "license": "MIT",
   "keywords": [
