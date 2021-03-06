@@ -2,9 +2,9 @@ node-rfr
 ========
 
 [![NPM Version](https://img.shields.io/npm/v/rfr.svg?style=flat)](https://npmjs.org/package/rfr)
+[![Downloads Status](https://img.shields.io/npm/dm/rfr.svg?style=flat)](https://npmjs.org/package/rfr)
 [![Build Status](http://img.shields.io/travis/warmsea/node-rfr.svg?style=flat)](https://travis-ci.org/warmsea/node-rfr)
 [![Coverage Status](https://img.shields.io/coveralls/warmsea/node-rfr.svg?style=flat)](https://coveralls.io/r/warmsea/node-rfr?branch=master)
-[![Downloads Status](https://img.shields.io/npm/dm/rfr.svg?style=flat)](https://npmjs.org/package/rfr)
 
 **node-rfr** is a *<b>R</b>equire <b>F</b>rom (project) <b>R</b>oot* tool for
 Node.js.
